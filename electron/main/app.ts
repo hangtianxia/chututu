@@ -143,20 +143,20 @@ export default class Application {
 
   private async createDefWin() {
     const opts: BrowserWindowConstructorOptions = {
-      width: 900 + (isDev ? 500 : 0),
-      height: 690,
+      width: 1200,
+      height: 800,
       title: 'chututu',
       frame: false,
+      resizable: true,
       webPreferences: {
         webSecurity: false,
       },
     };
 
     if (import.meta.env.PROD) {
-      opts.minWidth = opts.width;
-      opts.minHeight = opts.height;
-      opts.maxWidth = opts.width;
-      opts.maxHeight = opts.height;
+      opts.minWidth = 800;
+      opts.minWidth = 800;
+      opts.minHeight = 600;
     }
 
     this.win = await createWindow('main', opts);
