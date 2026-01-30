@@ -114,7 +114,7 @@
       "perMachine": false
     },
     "linux": {
-      "icon": "./icon/icon.png",
+      "icon": "./icon/icon-512.png",
       "target": [
         "deb",
         "rpm"
