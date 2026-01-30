@@ -1,0 +1,71 @@
+.font-select{
+  width: 150px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  .db-input__inner {
+    height: 28px !important;
+    line-height: 28px;
+  }
+  
+  .font-list {
+    background-color: var(--bg-color);
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  .variant-filled {
+    background-color: var(--active-color);
+    color: white;
+  }
+
+  input {
+    font-family: inherit !important;
+  }
+}
+
+.db-select-dropdown__list {
+  .add-font {
+    width: 100%;
+    padding: 4px 0;
+    margin-bottom: 4px;
+    border-bottom: 2px solid var(--active-color);
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
+.db-select-dropdown {
+  width: 180px !important;
+  background-color: var(--bg-color);
+
+  .db-select-dropdown__item {
+    padding: 0 10px;
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      background-color: var(--active-color);
+      color: white;
+    }
+
+    &.selected {
+      color: var(--active-color);
+    }
+
+    .font-name {
+      flex: 1;
+      text-align: left;
+    }
+
+    .font-del {
+      width: 20px;
+      flex-shrink: 0;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}

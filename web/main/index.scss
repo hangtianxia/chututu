@@ -1,0 +1,164 @@
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  flex: 1;
+  min-height: 0;
+  background-position: center center;
+  background-size: 100% 100%;
+  padding: 0;
+  font-size: 14px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .hide {
+    display: none;
+  }
+
+  .body {
+    margin-top: 6px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .content {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    align-items: stretch;
+  }
+
+  .info-wrap {
+    width: 100%;
+    background-color: aqua;
+  }
+
+  .button-wrap {
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    user-select: none;
+
+    .page-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .button,
+      .grass.button,
+      label.button {
+        padding: 4px 10px !important;
+      }
+    }
+
+    .button.primary {
+      border: 1px solid var(--active-border-color);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+      font-weight: bold;
+    }
+  }
+}
+
+// Unified toolbar button sizing across pages (watermark/stitch/crop)
+.watermark-toolbar,
+.stitch-toolbar,
+.crop-toolbar {
+  .button,
+  .grass.button,
+  label.button {
+    margin-left: 0 !important;
+    padding: 4px 10px !important;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .button.primary {
+    border: 1px solid var(--active-border-color);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    font-weight: bold;
+  }
+}
+
+.param-sidebar {
+  font-size: 13px;
+  color: var(--text-color);
+
+  .panel-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 8px;
+  }
+
+  .config-title,
+  .label {
+    font-weight: bold;
+    color: var(--text-color);
+  }
+
+  .config-value,
+  .val {
+    color: var(--text-color-1);
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 36px;
+    margin-top: 0;
+  }
+
+  .label {
+    width: 90px;
+    text-align: right;
+  }
+
+  .input {
+    height: 28px;
+    padding: 0 8px;
+    border-radius: 4px;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg-2);
+    color: var(--text-color);
+    outline: none;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: var(--active-border-color);
+    }
+  }
+}
+
+.left-wrap {
+  .output-setting {
+    padding: 0 4px;
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--active-color);
+      font-weight: bold;
+    }
+  }
+}

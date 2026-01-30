@@ -1,0 +1,352 @@
+.app-action-wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 0;
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+
+  .app-action-right-wrap,
+  .app-action-left-wrap {
+    flex: 2 0 100px;
+
+    .open-file-line {
+      cursor: pointer;
+
+      &:hover {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+
+    .size-input {
+      border: none;
+      padding: 0;
+      display: inline-block;
+      width: 50px;
+      outline: none;
+      border: none;
+      background: none;
+      box-sizing: border-box;
+      touch-action: manipulation;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+      }
+    }
+  }
+
+  .app-action-left-wrap {
+    width: 420px;
+    flex-basis: 420px;
+    flex-grow: 0;
+    overflow: hidden;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+
+    .watermark-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0 12px;
+      margin: 0 0 8px;
+
+      // button sizing is unified globally in web/main/index.scss
+    }
+
+    .left-settings {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin: 0 12px 10px;
+      padding: 10px 12px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      border: 1px solid var(--panel-border);
+    }
+
+    .output-setting {
+      padding: 0 4px;
+      display: inline-block;
+      cursor: pointer;
+  
+      &:hover {
+        color: var(--active-color);
+        font-weight: bold;
+      }
+    }
+
+    .action-item {
+      height: 36px;
+      box-sizing: border-box;
+    }
+  }
+
+  .app-action-right-wrap {
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .preview-wrap {
+    margin: 0 12px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .preview-head {
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  .preview-title {
+    font-weight: bold;
+    color: #515255;
+  }
+
+  .preview-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+
+    .preview-name {
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-wrap: nowrap;
+      color: #8f9094;
+      font-size: 12px;
+    }
+
+    .preview-zoom {
+      font-size: 12px;
+      color: #8f9094;
+      flex-shrink: 0;
+    }
+
+    .button {
+      padding: 3px 10px !important;
+      flex-shrink: 0;
+    }
+  }
+
+  .preview-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .preview-scroll {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    scrollbar-gutter: stable;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+
+    &.dragging {
+      cursor: grabbing;
+    }
+  }
+
+  .preview-img {
+    transform-origin: top center;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    -webkit-user-drag: none;
+  }
+
+  .preview-inner {
+    flex: 0 0 auto;
+    border-radius: 4px;
+  }
+
+  .preview-empty,
+  .preview-loading,
+  .preview-error {
+    font-size: 12px;
+    color: #8f9094;
+    text-align: center;
+  }
+
+  .preview-error {
+    color: #b54b4b;
+  }
+  
+  .img-wrap {
+    flex: 0 0 120px;
+    height: 120px;
+    margin: 0 12px;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+
+  .img-list {
+    padding: 5px 0 20px;
+
+    .img-item {
+      margin-top: 15px;
+      border-radius: 4px;
+      padding: 6px 12px;
+      cursor: pointer;
+
+      &.active {
+        outline: 2px solid var(--active-border-color);
+      }
+
+      .img-item-head {
+        display: flex;
+        align-items: center;
+        padding-bottom: 4px;
+      }
+
+      .img-name {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-wrap: nowrap;
+        font-weight: bold;
+        color: #515255;
+      }
+
+      .img-item-info {
+        font-size: 12px;
+        color: #8f9094;
+      }
+
+      .img-item-faild-msg {
+        max-height: 30px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        font-size: 12px;
+        color: #8f9094;
+      }
+    }
+  }
+
+  .task-action {
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: right;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    .button {
+      flex-shrink: 0;
+      padding: 4px 10px !important;
+    }
+  }
+
+  .switch {
+    transform: rotate(90deg);
+    cursor: pointer;
+  }
+
+  .radius-drag {
+    position: relative;
+    flex: 1 1 auto;
+    height: 18px;
+    margin-left: 8px;
+    border-radius: 999px;
+    cursor: ew-resize;
+    user-select: none;
+    touch-action: none;
+  }
+
+  .radius-drag-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 6px;
+    transform: translateY(-50%);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+  }
+
+  .radius-drag-fill {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 6px;
+    transform: translateY(-50%);
+    border-radius: 999px;
+    background: rgba(108, 214, 255, 0.6);
+  }
+
+  .radius-drag-thumb {
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    box-sizing: border-box;
+  }
+
+  .radius-drag-val {
+    position: absolute;
+    right: 0;
+    top: -16px;
+    font-size: 11px;
+    color: #8f9094;
+    transform: translateX(25%);
+    pointer-events: none;
+  }
+
+  @media (max-width: 980px) {
+    flex-direction: column;
+
+    .app-action-left-wrap {
+      width: 100%;
+      flex-basis: auto;
+    }
+
+    .app-action-right-wrap {
+      width: 100%;
+    }
+
+    .img-wrap {
+      flex: 0 0 110px;
+      height: 110px;
+    }
+  }
+}

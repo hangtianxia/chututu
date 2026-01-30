@@ -1,0 +1,324 @@
+:root {
+  --bg-color: #ffffff;
+
+  --text-color: #0f172a;
+  --text-color-1: rgba(15, 23, 42, 0.72);
+
+  --active-color: #2563eb;
+  --active-border-color: rgba(37, 99, 235, 0.55);
+
+  --panel-bg: #ffffff;
+  --panel-bg-2: #f8fafc;
+  --panel-border: rgba(15, 23, 42, 0.12);
+
+  --shadow-outer: 0 12px 30px rgba(15, 23, 42, 0.10);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.90);
+  --shadow-inner-2: inset 0 -18px 40px rgba(15, 23, 42, 0.04);
+
+  --success-color: #1f8a3a;
+  --error-color: #b42318;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
+html,
+body,
+#app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin glass-common() {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+}
+
+@mixin grass($offset: 0px, $width: 0px) {
+  @include glass-common();
+  box-shadow: var(--shadow-outer), var(--shadow-inner);
+}
+
+@mixin grass-inset($offset: 0px, $width: 0px) {
+  @include glass-common();
+  background: var(--panel-bg-2);
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+#app,
+body {
+  .success {
+    color: var(--success-color);
+  }
+
+  .error {
+    color: var(--error-color);
+  }
+
+  .icon {
+    cursor: pointer;
+  }
+
+  .db-drawer {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    
+    .db-drawer__body {
+      overflow-y: auto;
+    }
+  }
+
+  .db-switch {
+    .db-switch__core {
+      @include grass(2px, 4px);
+    }
+
+    &.is-checked {
+      .db-switch__core {
+        background-color: var(--active-color);
+        border-color: transparent;
+      }
+    }
+
+    .db-switch__label {
+      color: var(--text-color-1);
+
+      &.is-active {
+        color: var(--text-color);
+      }
+    }
+  }
+
+  .db-input {
+    &.text-input {
+      .db-input__inner {
+        @include grass-inset();
+      }
+    }
+
+    .db-input__inner {
+      @include grass-inset();
+      background-color: transparent;
+      color: var(--text-color-1);
+      border: none;
+    }
+
+    &.is-active .db-input__inner,
+    .db-input__inner:focus {
+      border-color: var(--text-color);
+    }
+
+    .db-input-group__append, .db-input-group__prepend {
+      @include grass();
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  .db-dialog {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+
+    .db-dialog__title {
+      color: var(--text-color);
+    }
+  }
+
+  .db-radio {
+    margin-right: 5px;
+
+    .db-radio__label {
+      padding-left: 5px;
+    }
+
+    .db-radio__input.is-checked {
+      .db-radio__inner {
+        background: var(--active-color);
+        border-color: var(--text-color);
+        border: none;
+      }
+      
+      +.db-radio__label {
+        color: var(--text-color);
+      }
+    }
+  }
+
+  .grass {
+    @include grass();
+  }
+
+  .grass-inset {
+    @include grass-inset();
+  }
+
+  .db-popover {
+    color: inherit;
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+  }
+
+  .db-popper[data-popper-placement^=top] .popper__arrow {
+    border-top-color: var(--bg-color) !important;
+
+    &::after {
+      border-top-color: var(--bg-color) !important;
+    }
+  }
+
+  .db-popper[data-popper-placement^=bottom] .popper__arrow {
+    border-bottom-color: var(--bg-color) !important;
+
+    &::after {
+      border-bottom-color: var(--bg-color) !important;
+    }
+  }
+
+  .db-popper[data-popper-placement^=left] .popper__arrow {
+    border-left-color: var(--bg-color) !important;
+
+    &::after {
+      border-left-color: var(--bg-color) !important;
+    }
+  }
+
+  .db-popper[data-popper-placement^=right] .popper__arrow {
+    border-right-color: var(--bg-color) !important;
+
+    &::after {
+      border-right-color: var(--bg-color) !important;
+    }
+  }
+
+  .db-collapse {
+    border: none;
+  }
+
+  .db-collapse-item {
+    .db-collapse-item__header {
+      color: inherit;
+      font-weight: bold;
+      border: none;
+      background-color: transparent;
+
+      .button {
+        padding: 4px 10px;
+        margin-left: 10px;
+        border-radius: 4px;
+      }
+    }
+
+    .db-collapse-item__wrap {
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  .input,
+  .input:focus {
+    @include grass-inset();
+    background-color: transparent;
+    background-image: none;
+    border-radius: 4px;
+    border: none;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: inherit;
+    height: 28px;
+    width: 92px;
+    outline: none;
+    padding: 0 4px;
+    text-align: center;
+  }
+
+  .button {
+    @include grass();
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    margin-left: 10px;
+    box-sizing: border-box;
+  
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+
+    &:hover {
+      background: var(--panel-bg-2);
+      border-color: var(--active-border-color);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0px);
+    }
+  
+    &:first-child {
+      margin-left: 0px;
+    }
+  }
+
+  .db-dropdown-menu {
+    background: rgba(12, 24, 48, 0.72);
+    border: 1px solid var(--panel-border);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .db-dropdown-menu__item:focus,
+    .db-dropdown-menu__item:not(.is-disabled):hover {
+      font-weight: bold;
+      color: var(--active-color);
+      background-color: transparent;
+      box-sizing: border-box;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.normal-input {
+  @include grass();
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: inherit;
+  outline: none;
+  padding: 0 15px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  width: 100%;
+
+  &[type='file'] {
+    background: unset;
+    border-color: inherit;
+    border-width: 0;
+    border-radius: 4px;
+    padding: 0;
+    font-size: unset;
+    line-height: 40px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

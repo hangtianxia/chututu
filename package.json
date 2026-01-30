@@ -1,0 +1,124 @@
+{
+  "name": "chututu",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist-electron/main/index.js",
+  "description": "Chututu - 发布图片编辑工具，加框、拼图、裁剪等功能",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "tsc": "tsc --noEmit",
+    "package:dir": "yarn build && electron-builder -c electron-make.ts --dir",
+    "package": "yarn build && electron-builder",
+    "make": "yarn build && electron-builder -p never",
+    "push:release": "node release.js",
+    "push:dev": "node dev.js"
+  },
+  "author": {
+    "name": "Hangtianxia",
+    "email": "hangtianxiaw@gmail.com",
+    "url": ""
+  },
+  "homepage": "https://github.com/hangtianxia/chututu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hangtianxia/chututu.git"
+  },
+  "devDependencies": {
+    "@ggchivalrous/db-ui": "^1.3.1",
+    "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "@types/adm-zip": "^0.5.5",
+    "@types/fluent-ffmpeg": "^2.1.21",
+    "@types/tar": "^6.1.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "adm-zip": "^0.5.12",
+    "axios": "^1.6.5",
+    "electron": "24.2.0",
+    "electron-builder": "^24.6.3",
+    "eslint": "8.11.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-svelte": "^2.35.1",
+    "exif-parser": "^0.1.12",
+    "exifreader": "^4.13.0",
+    "mime": "^3.0.0",
+    "sass": "^1.64.2",
+    "svelte": "^4.2.8",
+    "tar": "^6.2.0",
+    "typescript": "^5.0.4",
+    "vite": "^5.0.10",
+    "vite-plugin-electron": "^0.11.2",
+    "vite-plugin-electron-renderer": "^0.14.2"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "octokit": "^3.1.0",
+    "sharp": "0.32.6"
+  },
+  "build": {
+    "asar": false,
+    "appId": "com.hangtianxia.chututu",
+    "productName": "chututu",
+    "copyright": "Copyright © 2026 ${author}",
+    "directories": {},
+    "extends": [],
+    "extraMetadata": {
+      "main": "./main/index.js",
+      "type": "commonjs"
+    },
+    "artifactName": "chututu-${version}-${platform}-${arch}.${ext}",
+    "files": [
+      {
+        "from": "dist-electron",
+        "to": ".",
+        "filter": [
+          "**/*",
+          "!package.json"
+        ]
+      },
+      "package.json"
+    ],
+    "mac": {
+      "icon": "./icon/icon.icns",
+      "category": "public.app-category.productivity"
+    },
+    "dmg": {
+      "icon": "./icon/icon.icns",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 380,
+          "y": 280,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 110,
+          "y": 280,
+          "type": "file"
+        }
+      ]
+    },
+    "win": {
+      "icon": "./icon/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "perMachine": false
+    },
+    "linux": {
+      "icon": "./icon/icon.png",
+      "target": [
+        "deb",
+        "rpm"
+      ]
+    }
+  }
+}
