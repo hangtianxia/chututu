@@ -2,6 +2,10 @@
 
 发布图片编辑工具，支持加框、拼图、裁剪等功能。
 
+## 致谢
+
+本项目基于 [ggchivalrous/yiyin](https://github.com/ggchivalrous/yiyin) 修改，感谢原作者的贡献。
+
 ## 功能特性
 
 - 🖼️ **图片加框** - 多种边框样式可选
