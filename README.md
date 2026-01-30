@@ -20,12 +20,12 @@
 ## 环境要求
 
 - Node.js >= 18
-- Yarn >= 1.22
+- npm >= 9
 
 ## 安装依赖
 
 ```bash
-yarn install
+npm install
 ```
 
 ## 开发模式
@@ -33,7 +33,7 @@ yarn install
 启动 Vite 开发服务器（网页版）：
 
 ```bash
-yarn start
+npm run start
 ```
 
 ## 构建打包
@@ -41,28 +41,33 @@ yarn start
 ### 构建 Web 应用
 
 ```bash
-yarn build
+npm run build
 ```
 
 ### 打包桌面应用
 
 ```bash
 # 打包为目录（不压缩）
-yarn package:dir
+npm run package:dir
 
-# 完整打包
-yarn package
-
-# 打包所有平台
-yarn make
+# 完整打包（生成安装包）
+npm run package
 ```
+
+**注意**：在不同操作系统上运行会生成对应平台的安装包：
+
+| 操作系统 | 安装包格式 |
+|---------|-----------|
+| macOS | `.dmg` (Apple 磁盘映像) |
+| Windows | `.exe` (NSIS 安装程序) |
+| Linux | `.deb` / `.rpm` |
 
 打包产物位于 `dist-electron/` 目录。
 
 ## 类型检查
 
 ```bash
-yarn tsc
+npm run tsc
 ```
 
 ## License
