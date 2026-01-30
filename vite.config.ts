@@ -116,6 +116,7 @@ export default defineConfig(async ({ command }) => {
       renderer(),
       svelte({
         preprocess: vitePreprocess(),
+        inspector: false,
       }),
     ],
     clearScreen: false,
